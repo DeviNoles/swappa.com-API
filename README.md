@@ -1,6 +1,6 @@
 # Swappa Python Package
 
-Since companies charging for their APIs are no fun :(
+Companies charging for their APIs are no fun :(
 
 https://swappa.com/data-services
 
