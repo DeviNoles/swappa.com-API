@@ -9,14 +9,10 @@ Here's a Python package to access data from Swappa.
 https://swappa.com/
 
 To-Do
-- [ ] Organize retrieved data
+- [ ] Organize retrieved data into JSON
 - [ ] Local
 - [ ] Carrier
-- [ ] Plans
-- [ ] laptops
-- [ ] Watches
-- [ ] Tablets
-- [ ] Video Games
-- [ ] More
+- [ ] Brand
+- [ ] Top Menu Search
 - [ ] Seller API
 - [ ] Documentation
