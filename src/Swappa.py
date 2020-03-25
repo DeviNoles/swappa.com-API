@@ -131,8 +131,27 @@ class Swappa:
             searchURL = searchURL + "new-york-city";
         elif(city=="philadelphia" or city=="pennsylvania" or city=="pa" or city=="philly"):
             searchURL = searchURL + "philadelphia";
-        print(searchURL);
 
+        print(searchURL);
+        r = requests.get(searchURL);
+        soup = BeautifulSoup(r.content, 'html5lib');
+        #print(soup.prettify());
+        wrap = soup.find('div', attrs = {'id':'wrap'});
+        table = wrap.find('section', attrs = {'class':'section_main'});
+        orow = table.find('div', attrs = {'class':'row'});
+        oc = orow.find('div', attrs = {'class':'col-xs-12 col-sm-8 col-md-9'});
+        row = oc.find('div', attrs = {'class':'row'})
+        rowCount = 0;
+
+        for rows in row.findAll('div', attrs = {'class':'col-xs-6 col-sm-6 col-md-4 col-lg-3'}):
+            #rw = rows.find('div', attrs = {'class':'row'});
+            #ic = rows.find('div', attrs = {'class':'col-xs-6 col-sm-6 col-md-4 col-lg-3'});
+            lc = rows.find('div', attrs = {'class':'listing_cell'});
+            lca = lc.find('a')
+
+            print(lca['title']);
 bs = Swappa();
-bs.search("iphone 7");
-bs.local("broward")
+#bs.search("iphone 7");
+bs.local("broward");
+bs.local("boston");
+bs.local("new york city");
