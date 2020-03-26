@@ -146,22 +146,37 @@ class Swappa:
         rowCount = 0;
         localdumpstring=[];
         returnedLocalJson=[];
+        priceArray = [];
         for rows in row.findAll('div', attrs = {'class':'col-xs-6 col-sm-6 col-md-4 col-lg-3'}):
             #rw = rows.find('div', attrs = {'class':'row'});
             #ic = rows.find('div', attrs = {'class':'col-xs-6 col-sm-6 col-md-4 col-lg-3'});
             lc = rows.find('div', attrs = {'class':'listing_cell'});
             lca = lc.find('a')
             localdumpstring.append(lca['title']);
+            priceClass = lc.find('span', attrs = {'class':'corner_price'});
+            print(priceClass.text);
+            buffer="";
+            exitBuffer=False;
+            for k in range(0,len(priceClass.text)):
+                if(priceClass.text[k]=='\n' or priceClass.text[k]==' ' or priceClass.text[k]=='\t' or priceClass.text[k]=='$'):
+                    if(exitBuffer==True):
+                        break
+                    continue
+                else:
+                    buffer=buffer+priceClass.text[k];
+                    exitBuffer=True;
+
+            priceArray.append(buffer);
             rowCount = rowCount + 1;
             #print(lca['title']);
         for x in range(0, rowCount):
-            returnedLocalJson.append(json.dumps({"id": x, "title": localdumpstring[x]}));
+            returnedLocalJson.append(json.dumps({"id": x, "title": localdumpstring[x], "price": int(priceArray[x])}));
 
         print(returnedLocalJson);
         return returnedLocalJson;
 
 bs = Swappa();
 #bs.search("iphone 7");
-bs.local("broward");
-bs.local("boston");
-bs.local("new york city");
+#bs.local("broward");
+#bs.local("boston");
+bs.local("phoenix");
