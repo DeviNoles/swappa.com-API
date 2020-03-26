@@ -6,7 +6,7 @@ https://swappa.com/
 
 To-Do
 - [ ] Organize retrieved data into JSON
-- [ ] Local
+- [X] Local
 - [ ] Carrier
 - [ ] Brand
 - [ ] Top Menu Search
