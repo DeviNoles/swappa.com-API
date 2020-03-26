@@ -5,7 +5,7 @@ Here's a Python package to access data from Swappa.
 https://swappa.com/
 
 To-Do
-- [ ] Organize retrieved data into JSON
+- [X] Organize retrieved data into JSON
 - [X] Local
 - [ ] Carrier
 - [ ] Brand
