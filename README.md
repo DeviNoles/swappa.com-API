@@ -1,3 +1,5 @@
+# Swappa Python Library
+
 Here's a Python package to access data from Swappa.
 
 https://swappa.com/
@@ -16,4 +18,5 @@ cd swappa
 pip3 install -r bin/requirements.txt
 source bin/activate
 ```
-code is in src/Swappa.py
+
+## code is in src/Swappa.py
