@@ -131,6 +131,8 @@ class Swappa:
             searchURL = searchURL + "new-york-city";
         elif(city=="philadelphia" or city=="pennsylvania" or city=="pa" or city=="philly"):
             searchURL = searchURL + "philadelphia";
+        elif(city=="san diego" or city=="sd"):
+            searchURL = searchURL + "san-diego";
 
         print(searchURL);
         r = requests.get(searchURL);
@@ -142,14 +144,22 @@ class Swappa:
         oc = orow.find('div', attrs = {'class':'col-xs-12 col-sm-8 col-md-9'});
         row = oc.find('div', attrs = {'class':'row'})
         rowCount = 0;
-
+        localdumpstring=[];
+        returnedLocalJson=[];
         for rows in row.findAll('div', attrs = {'class':'col-xs-6 col-sm-6 col-md-4 col-lg-3'}):
             #rw = rows.find('div', attrs = {'class':'row'});
             #ic = rows.find('div', attrs = {'class':'col-xs-6 col-sm-6 col-md-4 col-lg-3'});
             lc = rows.find('div', attrs = {'class':'listing_cell'});
             lca = lc.find('a')
+            localdumpstring.append(lca['title']);
+            rowCount = rowCount + 1;
+            #print(lca['title']);
+        for x in range(0, rowCount):
+            returnedLocalJson.append(json.dumps({"id": x, "title": localdumpstring[x]}));
 
-            print(lca['title']);
+        print(returnedLocalJson);
+        return returnedLocalJson;
+
 bs = Swappa();
 #bs.search("iphone 7");
 bs.local("broward");
