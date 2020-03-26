@@ -10,3 +10,10 @@ To-Do
 - [ ] Top Menu Search
 - [ ] Seller API
 - [ ] Documentation
+
+```
+cd swappa
+pip3 install -r bin/requirements.txt
+source bin/activate
+```
+code is in src/Swappa.py
