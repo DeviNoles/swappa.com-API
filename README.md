@@ -28,3 +28,5 @@ bs = Swappa();
 print(bs.search("iphone 7"));
 print(bs.local("phoenix")); #from https://swappa.com/local and some acronyms (nyc, phnx, sd, etc)
 ```
+
+### open issues pls
