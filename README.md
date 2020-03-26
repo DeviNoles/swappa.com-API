@@ -7,6 +7,7 @@ https://swappa.com/
 To-Do
 - [X] Organize retrieved data into JSON
 - [X] Local
+- [ ] Add url's of listing into returned JSON object
 - [ ] Carrier
 - [ ] Brand
 - [ ] Top Menu Search
