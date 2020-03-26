@@ -53,13 +53,13 @@ class Swappa:
                 phone['model'] = buffer[1:];
                 buffer="";
                 phone['carrier'] = "N/A";
-            print("ID:" + str(phone['id']));
-            print("Make:" + phone['make']);
-            print("Model:" + phone['model']);
-            print("Carrier:" + phone['carrier']);
+            #print("ID:" + str(phone['id']));
+            #print("Make:" + phone['make']);
+            #print("Model:" + phone['model']);
+            #print("Carrier:" + phone['carrier']);
             phones.append(json.dumps({"id": phone['id'], "make": phone['make'], "model": phone['model'], "carrier": phone['carrier']}));
 
-            print (phones[rowCount]);
+            #print (phones[rowCount]);
             rowCount = rowCount + 1;
 
         return phones;
@@ -176,6 +176,9 @@ class Swappa:
             #print(returnedLocalJson[x]);
         return returnedLocalJson;
 
-bs = Swappa();
-bs.search("iphone 7");
-#bs.local("phoenix");
+#-------------------------------------------------------------------------------------------------------------------------
+#DOCUMENTATION
+#Here is what works so far
+#bs = Swappa();
+#print(bs.search("iphone 7"));
+#print(bs.local("phoenix")) any city from https://swappa.com/local and some acronyms (nyc, phnx, sd, etc);
