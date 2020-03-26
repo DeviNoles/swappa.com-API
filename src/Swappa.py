@@ -40,7 +40,7 @@ class Swappa:
                 elif(l == ' ' and wordCount==1):
                     wordCount = wordCount + 1;
                 elif(l == '('):
-                    phone['model'] = buffer[1:];
+                    phone['model'] = buffer[1:-1];
                     buffer="";
                     carrier = True;
                 elif(l == ' '):
@@ -53,13 +53,16 @@ class Swappa:
                 phone['model'] = buffer[1:];
                 buffer="";
                 phone['carrier'] = "N/A";
-            """print("ID:" + str(phone['id']));
+            print("ID:" + str(phone['id']));
             print("Make:" + phone['make']);
             print("Model:" + phone['model']);
-            print("Carrier:" + phone['carrier']);"""
-            phones.append(phone);
+            print("Carrier:" + phone['carrier']);
+            phones.append(json.dumps({"id": phone['id'], "make": phone['make'], "model": phone['model'], "carrier": phone['carrier']}));
 
+            print (phones[rowCount]);
             rowCount = rowCount + 1;
+
+        return phones;
 
     def local(self, city):
         searchURL = self.URL+"local/";
@@ -134,7 +137,7 @@ class Swappa:
         elif(city=="san diego" or city=="sd"):
             searchURL = searchURL + "san-diego";
 
-        print(searchURL);
+        #print(searchURL);
         r = requests.get(searchURL);
         soup = BeautifulSoup(r.content, 'html5lib');
         #print(soup.prettify());
@@ -154,7 +157,6 @@ class Swappa:
             lca = lc.find('a')
             localdumpstring.append(lca['title']);
             priceClass = lc.find('span', attrs = {'class':'corner_price'});
-            print(priceClass.text);
             buffer="";
             exitBuffer=False;
             for k in range(0,len(priceClass.text)):
@@ -171,12 +173,9 @@ class Swappa:
             #print(lca['title']);
         for x in range(0, rowCount):
             returnedLocalJson.append(json.dumps({"id": x, "title": localdumpstring[x], "price": int(priceArray[x])}));
-
-        print(returnedLocalJson);
+            #print(returnedLocalJson[x]);
         return returnedLocalJson;
 
 bs = Swappa();
-#bs.search("iphone 7");
-#bs.local("broward");
-#bs.local("boston");
-bs.local("phoenix");
+bs.search("iphone 7");
+#bs.local("phoenix");
