@@ -175,10 +175,13 @@ class Swappa:
             returnedLocalJson.append(json.dumps({"id": x, "title": localdumpstring[x], "price": int(priceArray[x])}));
             #print(returnedLocalJson[x]);
         return returnedLocalJson;
+    def carrier(self, carrierName):
+        print("CARRIER");
+
 
 #-------------------------------------------------------------------------------------------------------------------------
 #DOCUMENTATION
 #Here is what works so far
-#bs = Swappa();
-#print(bs.search("iphone 7"));
-#print(bs.local("phoenix")) any city from https://swappa.com/local and some acronyms (nyc, phnx, sd, etc);
+bs = Swappa();
+print(bs.search("iphone 7"));
+print(bs.local("phoenix"));# any city from https://swappa.com/local and some acronyms (nyc, phnx, sd, etc);
