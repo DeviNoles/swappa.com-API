@@ -1,4 +1,4 @@
-# Swappa Python Library
+  # Swappa Python Library
 
 Here's a Python package to access data from Swappa.
 
@@ -14,11 +14,18 @@ To-Do
 - [ ] Seller API
 - [ ] Documentation
 
+## Linux / OS X
+```
+cd swappa
+source bin/activate
+pip3 install -r bin/requirements.txt
+```
+## Windows
 ```
 cd swappa
 pip3 install -r bin/requirements.txt
-source bin/activate
 ```
+
 
 ## code is in src/Swappa.py
 
