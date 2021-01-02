@@ -1,5 +1,4 @@
-  # Swappa Python Library
-
+  # Swappa Python API
 Here's a Python package to access data from Swappa.
 
 https://swappa.com/
