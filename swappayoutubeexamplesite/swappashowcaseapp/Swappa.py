@@ -153,6 +153,7 @@ class Swappa:
         localURLs=[];
         returnedLocalJson=[];
         priceArray = [];
+        imageArray = [];
         for rows in row.findAll('div', attrs = {'class':'col-xs-6 col-sm-6 col-md-4 col-lg-3'}):
             #rw = rows.find('div', attrs = {'class':'row'});
             #ic = rows.find('div', attrs = {'class':'col-xs-6 col-sm-6 col-md-4 col-lg-3'});
@@ -160,14 +161,36 @@ class Swappa:
             lca = lc.find('a')
             localdumpstring.append(lca['title']);
             localURLs.append('http://www.swappa.com' + lca['href']);
+            #GET IMAGES HERE
             #imageRequest = requests.get(localURLs[rowCount]);
+            #print(localURLs[rowCount])
             #imageSoup = BeautifulSoup(imageRequest.content, 'html5lib');
             #imageWrap = imageSoup.find('div', attrs = {'id':'wrap'});
             #sectionPictures = imageWrap.find('section', attrs = {'id':'section_pictures'});
             #galleryImages = sectionPictures.find('div', attrs = {'id':'gallery_images'}); #ALL THE IMAGES IN HERE
-            print(localdumpstring[rowCount]);
+            #imageIwant = galleryImages.find('div', attrs = {'class': 'col-xs-6 col-sm-2 col-md-2'})
+            #rethref = imageIwant.find('a', attrs = {'class': 'lightbox'})
+            #images = rethref.findAll('img')
+        #    for image in images:
+                #print(image['src'])
+            #    imageArray.append(image['src'])
+            #print(localdumpstring[rowCount]);
             #print(galleryImages);
-            #GET IMAGES HERE
+
+#TRYING TO GET SUMMARY
+        #    infoRequest = requests.get(localURLs[rowCount]);
+        #    infoSoup = BeautifulSoup(infoRequest.content, 'html5lib');
+        #    infoWrap = infoSoup.find('div', attrs = {'id':'wrap'});
+        #    infoContainer = infoWrap.find('div', attrs = {'class': 'container'})
+        #    sectionSummary= infoContainer.find('section', attrs = {'id':'section_summary'});
+        #    summaryRow = sectionSummary.findAll("div", {"class" : "row"})
+            #print(summaryRow)
+        #    summaryRow= summaryRow[1]
+            #print(summaryRow)
+        #    summaryCol = summaryRow.find('div', attrs = {'class': 'col-xs-12 col-md-8'})
+        #    summaryDiv = summaryCol.find('div', attrs = {'class': 'desc_block'})
+        #    retp = summaryDiv.find('p').getText()
+            #print(retp)
             priceClass = lc.find('span', attrs = {'class':'corner_price'});
             buffer="";
             exitBuffer=False;

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Swappa.com API Example</title>
+    <link crossorigin="anonymous"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css"
+          integrity="sha256-8B1OaG0zT7uYA572S2xOxWACq9NXYPQ+U5kHPV1bJN4="
+          rel="stylesheet"/>
+</head>
+<body>
+<nav aria-label="main navigation" class="navbar is-light" role="navigation">
+    <div class="navbar-brand">
+        <div class="navbar-item">
+            <img  style="margin-right: 0.5em;">Swappa.com API Example
+        </div>
+    </div>
+</nav>
+
+<table  class="table is-fullwidth is-striped is-bordered  " style=" display: block;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 0 auto;
+  overflow-x: auto;
+  white-space: nowrap;"> <!-- thank god for this guy because i was having trouble with getting this table to behave https://stackoverflow.com/questions/19794211/horizontal-scroll-on-overflow-of-table-->
+    <thead>
+    <tr >
+        <th>Image URL</th>
+        <th>ID</th>
+        <th>Listing Title</th>
+        <th>Price</th>
+        <th>URL</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+<tr>
+{% for item in getID %}
+<td>
+  {{ item }}
+  </td>
+{% endfor %}
+
+    </tr>
+    <tr>
+    {% for item1 in getTitle %}
+    <td>
+      {{ item1 }}
+      </td>
+    {% endfor %}
+
+        </tr>
+        <tr>
+        {% for item2 in getPrice %}
+        <td>
+          {{ item2 }}
+          </td>
+        {% endfor %}
+
+            </tr>
+        <tr>
+        {% for item3 in getURL %}
+        <td>
+          {{ item3 }}
+          </td>
+        {% endfor %}
+
+            </tr>
+
+
+    </tbody>
+</table>
+
+</body>
+</html>
